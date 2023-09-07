@@ -48,11 +48,14 @@
     }
 
     announce() {
-      const thisWidget = this;
+      const thisBook = this;
       const event = new CustomEvent('updated', {
-        bubbles: true
+        bubbles: true,
+        detail: {
+          book: thisBook,
+        }
       });
-      thisWidget.element.dispatchEvent(event);
+      thisBook.element.dispatchEvent(event);
       //console.log(event);
     }
 
@@ -65,12 +68,14 @@
       thisApp.data = dataSource;
     },
 
+    addToFavorites: function(e, book) {
+      console.log(book);
+    },
+
     initBooks: function () {
       const thisApp = this;
       const books = [];
       const favoriteBooks = [];
-
-     
       
       for (let bookData of thisApp.data.books) {
         books.push(new Book(bookData));
@@ -78,8 +83,9 @@
       }
 
       books.map((book) => {
+        console.log(book);
         book.addEventListener('updated', function () {
-          thisApp.addToFavorites();
+          thisApp.addToFavorites(book);
         });
       });
     },
