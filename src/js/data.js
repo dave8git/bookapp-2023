@@ -5,7 +5,7 @@ dataSource.books = [
     id: 1,
     name: 'Lady in red',
     price: 20,
-    rating: 8,
+    rating: 1,
     image: 'images/books/1.jpg',
     details: {
       adults: true,
@@ -28,7 +28,7 @@ dataSource.books = [
     name: 'Eloquent Javascript',
     image: 'images/books/3.jpg',
     price: 20,
-    rating: 7.8,
+    rating: 6.8,
     details: {
       adults: false,
       nonFiction: true
